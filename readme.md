@@ -1,4 +1,4 @@
-In my many years of experiencing theme parks, I often found myself wondering about how theme parks operate. As a masters student in analytics, I decided to use my skills and begin tracking data to answer lifelong  questions about the experience and beginning with analyzing my newly local theme park, Universal Studios Singapore. The first question I am hoping to answer is "What factors are associated with longer wait times?".
+In my many years of experiencing theme parks, I often found myself wondering about how theme parks operate. As a masters student in analytics at NTU, I decided to use my skills and begin tracking data to answer lifelong  questions about the experience and beginning with analyzing my newly local theme park, Universal Studios Singapore. The first question I am hoping to answer is "What factors are associated with longer wait times?".
 
 The basic qualities of the attraction / show that I will be tracking:
   Attraction / Show Name
