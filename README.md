@@ -7,7 +7,7 @@
   * Wait Time<br/>
   * Attractions status<br/>
 
-## Theoretical aspects I think that could impact wait times and may or may not be able to find data for:<br/>
+## Aspects I think that could impact wait times but if have not been investigated yet:<br/>
   * Weather Condition<br/>
   * Total Park Attendance that day<br/>
   * Most recent media associated with attraction/show<br/>
