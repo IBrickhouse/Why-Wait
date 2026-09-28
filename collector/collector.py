@@ -8,9 +8,7 @@ from pathlib import Path
 park_id = "f95d7f76-2024-4510-b799-26e122d0e448"
 
 url = f"https://api.themeparks.wiki/v1/entity/{park_id}/live"
-#url = f"https://api.themeparks.wiki/v1/entity/{park_id}/this-does-not-exist"
 
-#csv_file = Path(__file__).resolve().parent.parent / "wait_times.csv"
 csv_file = Path(__file__).resolve().parent.parent / "data" / "production" / "wait_times.csv"
 csv_file.parent.mkdir(parents=True, exist_ok=True)
 
@@ -92,5 +90,3 @@ while True:
     collect_wait_times()
     print("Waiting 5 minutes...")
     time.sleep(300)
-
-#collect_wait_times()
