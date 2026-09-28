@@ -1,6 +1,7 @@
 import requests
 import csv
 import os
+import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from pathlib import Path
@@ -82,11 +83,14 @@ def collect_wait_times():
         file.flush()
         os.fsync(file.fileno())
 
+def main():
+    try:
+        while True:
+            collect_wait_times()
+            print("Waiting 5 minutes...")
+            time.sleep(300)
+    except KeyboardInterrupt:
+        print("Collection stopped.")
 
-import time
-
-
-while True:
-    collect_wait_times()
-    print("Waiting 5 minutes...")
-    time.sleep(300)
+if __name__ == "__main__":
+    main()
