@@ -1,0 +1,6 @@
+# Python environment
+.venv/
+
+# Collected data
+data/production/*
+data/test/*
