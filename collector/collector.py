@@ -10,8 +10,8 @@ park_id = "f95d7f76-2024-4510-b799-26e122d0e448"
 
 url = f"https://api.themeparks.wiki/v1/entity/{park_id}/live"
 
-csv_file = Path(__file__).resolve().parent.parent / "data" / "production" / "wait_times.csv"
-csv_file.parent.mkdir(parents=True, exist_ok=True)
+data_dir = Path(__file__).resolve().parent.parent / "data" / "production"
+data_dir.mkdir(parents=True, exist_ok=True)
 
 
 def collect_wait_times():
@@ -36,9 +36,9 @@ def collect_wait_times():
         print("USS is currently closed. No data collected.")
         return
 
-    timestamp = datetime.now(
-        ZoneInfo("Asia/Singapore")
-    ).strftime("%Y-%m-%d %H:%M:%S")
+    now = datetime.now(ZoneInfo("Asia/Singapore"))
+    timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
+    csv_file = data_dir / f"wait_times_{now.strftime('%Y-%m-%d')}.csv"
 
     file_exists = os.path.exists(csv_file)
 
