@@ -17,15 +17,14 @@ The second question is only addressed once the first has been answered.
 
 ### Core attributes
 
-Recorded for each attraction or show at each observation:
+Recorded for each attraction at each observation (`data/production/wait_times.csv`):
 
-| Attribute | Description |
+| Column | Description |
 |---|---|
-| Attraction / Show Name | Which attraction or show the observation is for |
-| Date | Date of the observation |
-| Time | Time of the observation |
-| Wait Time | Posted wait time |
-| Attraction Status | Whether the attraction is operating |
+| `timestamp` | Date and time of the observation, in Singapore time |
+| `attraction` | Attraction name |
+| `wait_time` | Posted standby wait time in minutes (empty if no standby queue is reported) |
+| `status` | Operating status of the attraction |
 
 ### Candidate factors
 
@@ -46,7 +45,7 @@ Attraction and wait-time data is retrieved from the ThemeParks.wiki API. Wait ti
 
 ## Approach
 
-1. **Collect:** a Python script queries the ThemeParks.wiki API every 5 minutes for attractions and their wait times. Timestamps are stored in Singapore time (SGT), the park's local time.
+1. **Collect:** a Python script queries the ThemeParks.wiki API every 5 minutes for attractions and their wait times. Collection is skipped while the park is closed (no attractions operating). Timestamps are stored in Singapore time (SGT), the park's local time.
 2. **Explore:** a Jupyter notebook holds the initial analysis of the collected data.
 
 **Tools:** Python, ThemeParks.wiki API, Jupyter Notebook
@@ -55,14 +54,16 @@ Attraction and wait-time data is retrieved from the ThemeParks.wiki API. Wait ti
 
 ```
 Why-Wait/
-├── collector/    # Python script that collects attraction and wait-time data
-├── analysis/     # Jupyter notebook with initial analysis
-├── data/         # Collected CSV files (not tracked in git; generated locally)
+├── collector/        # Python script that collects attraction and wait-time data
+├── analysis/         # Jupyter notebook with initial analysis
+├── data/             # Collected CSV files (not tracked in git; generated locally)
+│   ├── production/   # Output from live data collection
+│   └── test/         # Output from test runs
 ├── .gitignore
 └── README.md
 ```
 
-Collected data files are excluded from version control via `.gitignore`.
+Collected data files are excluded from version control via `.gitignore`. The collector creates `data/production/` automatically when it runs.
 
 ## Status
 
