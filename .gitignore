@@ -1,6 +1,13 @@
 # Python environment
 .venv/
 
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
 # Collected data
-data/production/*
-data/test/*
+data/production/
+data/test/
